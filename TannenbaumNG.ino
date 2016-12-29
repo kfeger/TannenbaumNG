@@ -16,6 +16,7 @@ volatile bool IsDark = false;
 volatile byte Red, Green, Blue;
 int LastEL = 0;
 int LEDLimit = 0;
+int BrightLimit = 0;
 
 
 //Timing

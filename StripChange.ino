@@ -4,20 +4,16 @@
 
 void GetRandomLED (void) {  //neue Ziel-Farben holen
   if (IsDark) {
-    for (int i = 0; i < STRING_LEN; i++) {
-      NewLed[i].Rot = (byte)random(0, MAX_LED_LOW);
-      NewLed[i].Gruen = (byte)random(0, MAX_LED_LOW);
-      NewLed[i].Blau = (byte)random(0, MAX_LED_LOW);
-      NewLed[i].Status = 0;
-    }
+    BrightLimit = MAX_LED_LOW;
   }
   else {
-    for (int i = 0; i < STRING_LEN; i++) {
-      NewLed[i].Rot = (byte)random(0, MAX_LED_HIGH);
-      NewLed[i].Gruen = (byte)random(0, MAX_LED_HIGH);
-      NewLed[i].Blau = (byte)random(0, MAX_LED_HIGH);
-      NewLed[i].Status = 0;
-    }
+    BrightLimit = MAX_LED_HIGH;
+  }
+  for (int i = 0; i < STRING_LEN; i++) {
+    NewLed[i].Rot = (byte)random(0, BrightLimit);
+    NewLed[i].Gruen = (byte)random(0, BrightLimit);
+    NewLed[i].Blau = (byte)random(0, BrightLimit);
+    NewLed[i].Status = 0;
   }
 }
 
@@ -87,20 +83,16 @@ void StripOff(void) {
 
 void GetRandomPixel (void) {  //neue Ziel-Farben holen
   if (IsDark) {
-    for (int i = 0; i < NUMPIXELS; i++) {
-      NewPix[i].Rot = (byte)random(0, MAX_PIX_LOW);
-      NewPix[i].Gruen = (byte)random(0, MAX_PIX_LOW);
-      NewPix[i].Blau = (byte)random(0, MAX_PIX_LOW);
-      NewPix[i].Status = 0;
-    }
+    BrightLimit = MAX_PIX_LOW;
   }
   else {
-    for (int i = 0; i < NUMPIXELS; i++) {
-      NewPix[i].Rot = (byte)random(0, MAX_PIX_HIGH);
-      NewPix[i].Gruen = (byte)random(0, MAX_PIX_HIGH);
-      NewPix[i].Blau = (byte)random(0, MAX_PIX_HIGH);
-      NewPix[i].Status = 0;
-    }
+    BrightLimit = MAX_PIX_HIGH;
+  }
+  for (int i = 0; i < NUMPIXELS; i++) {
+    NewPix[i].Rot = (byte)random(0, BrightLimit);
+    NewPix[i].Gruen = (byte)random(0, BrightLimit);
+    NewPix[i].Blau = (byte)random(0, BrightLimit);
+    NewPix[i].Status = 0;
   }
 }
 
